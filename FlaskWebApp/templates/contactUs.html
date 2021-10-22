@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Library Loan System - Contact Us{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Contact Us</h1>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#DIT">DIT</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#DSF">DSF</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#DCS">DCS</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#DBFT">DBFT</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#CIP">CIP</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane container-fluid active" id="DIT">
+        <h2 class="my-2">IT1166 App Development Project</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Mr. Chai Min Shiung</td>
+                <td>Module Leader</td>
+                <td><a href="mailto:chai_min_shiung@nyp.edu.sg">chai_min_shiung@nyp.edu.sg</a></td>
+            </tr>
+            <tr>
+                <td>Mr. Andrea Chua</td>
+                <td>Module Tutor</td>
+                <td><a href="mailto:andrea_chua@nyp.edu.sg">andrea_chua@nyp.edu.sg</a></td>
+            </tr>
+            <tr>
+                <td>Mr. Chan Yuen Loong</td>
+                <td>Module Tutor</td>
+                <td><a href="mailto:chan_yuen_loong@nyp.edu.sg">chan_yuen_loong@nyp.edu.sg</a></td>
+            </tr>
+            <tr>
+                <td>Ms. Li Haiyun</td>
+                <td>Module Tutor</td>
+                <td><a href="mailto:li_haiyun@nyp.edu.sg">li_haiyun@nyp.edu.sg</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="tab-pane container-fluid fade" id="DSF">
+        <h2 class="my-2">IT1566 App Development Project</h2>
+    </div>
+    <div class="tab-pane container-fluid fade" id="DCS">
+        <h2 class="my-2">IT1666 App Development Project</h2>
+    </div>
+    <div class="tab-pane container-fluid fade" id="DBFT">
+        <h2 class="my-2">IT1866 App Development Project</h2>
+    </div>
+    <div class="tab-pane container-fluid fade" id="CIP">
+        <h2 class="my-2">IT1966 App Development Project</h2>
+    </div>
+</div>
+
+{% endblock %}
