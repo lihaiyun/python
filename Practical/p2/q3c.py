@@ -13,7 +13,7 @@ class Student:
 
 
 def main():
-    schools = {'SchoolA': 5, 'SchoolB': 5, 'SchoolC': 5}
+    school_dict = {'SchoolA': 5, 'SchoolB': 5, 'SchoolC': 5}
 
     students = load_result()
     students.sort(key=by_score, reverse=True)
@@ -23,9 +23,9 @@ def main():
 
     for s in students:
         for c in s.choices:
-            if schools[c] > 0:
+            if school_dict[c] > 0:
                 s.allocation = c
-                schools[c] -= 1
+                school_dict[c] -= 1
                 break
 
     for s in students:
