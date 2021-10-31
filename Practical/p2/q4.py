@@ -47,8 +47,7 @@ def update():
 def delete():
     phone_id = input('Enter phone id to delete: ')
     if phone_id in phone_dict:
-        phone = phone_dict[phone_id]
-        del phone_dict[phone_id]
+        phone = phone_dict.pop(phone_id)
         print(f'The phone is deleted: {phone}')
     else:
         print('Phone not found')
