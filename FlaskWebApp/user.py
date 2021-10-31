@@ -1,3 +1,6 @@
+import uuid
+
+
 class User:
     type_public = 'public'
     type_staff = 'staff'
@@ -5,8 +8,8 @@ class User:
     status_active = 1
     status_deleted = 0
 
-    def __init__(self, user_id, email, password, name):
-        self.id = user_id
+    def __init__(self, email, password, name):
+        self.id = uuid.uuid4()
         self.email = email
         self.password = password
         self.name = name
@@ -17,7 +20,7 @@ class User:
         return f'ID: {self.id}\nEmail: {self.email}\nName: {self.name}\nType: {self.type}\nStatus: {self.status}\n'
 
 
-user1 = User(1, 'user1@test.com', 'flaskwebapp', 'Alice')
+user1 = User('user1@test.com', 'flaskwebapp', 'Alice')
 print(user1)
-user2 = User(2, 'user2@test.com', 'flaskwebapp', 'Bryan')
+user2 = User('user2@test.com', 'flaskwebapp', 'Bryan')
 print(user2)
