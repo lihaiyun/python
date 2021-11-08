@@ -20,7 +20,7 @@ def create_user():
         if 'users' in db:
             user_dict = db['users']
 
-        email =  create_user_form.email.data
+        email = create_user_form.email.data
         password = create_user_form.password.data
         name = create_user_form.name.data
         gender = create_user_form.gender.data
