@@ -1,6 +1,5 @@
 from person import Person
 
-
 class Student(Person):
     def __init__(self, nric, name, gpa):
         super().__init__(nric, name)

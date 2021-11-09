@@ -1,6 +1,5 @@
 from person import Person
 
-
 class Employee(Person):
     def __init__(self, nric, name, salary):
         super().__init__(nric, name)
