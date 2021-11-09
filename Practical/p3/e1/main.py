@@ -1,6 +1,5 @@
-from e_person import Person
-from e_employee import Employee
-from e_student import Student
+from employee import Employee
+from student import Student
 
 employee_list = []
 student_list = []
