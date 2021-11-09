@@ -5,4 +5,3 @@ class Person:
 
     def __str__(self):
         return f'NRIC: {self.__nric}, Name: {self.__name}'
-
