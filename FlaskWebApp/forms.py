@@ -10,7 +10,7 @@ class CreateUserForm(Form):
     name = StringField('Name', [validators.Length(min=1, max=150), validators.DataRequired()])
     gender = SelectField('Gender', [validators.DataRequired()],
                          choices=[('', 'Select'), ('F', 'Female'), ('M', 'Male')], default='')
-    birthday = DateField('Birthday', validators=[validators.Optional()])
+    birthday = DateField('Birthday', [validators.Optional()])
     membership = RadioField('Membership', choices=[('F', 'Fellow'), ('S', 'Senior'), ('P', 'Professional')],
                             default='F')
     remarks = TextAreaField('Remarks', [validators.Optional()])
