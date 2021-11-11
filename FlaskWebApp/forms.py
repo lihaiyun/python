@@ -1,6 +1,7 @@
 from wtforms import Form, StringField, PasswordField, RadioField, SelectField, TextAreaField, validators
 from wtforms.fields.html5 import EmailField, DateField
 
+
 class CreateUserForm(Form):
     email = EmailField('Email', [validators.DataRequired(), validators.Email()])
     password = PasswordField('Password', [validators.Length(min=6, max=15), validators.DataRequired()])
