@@ -24,9 +24,10 @@ def create_user():
         password = create_user_form.password.data
         name = create_user_form.name.data
         gender = create_user_form.gender.data
+        birthday = create_user_form.birthday.data
         membership = create_user_form.membership.data
         remarks = create_user_form.remarks.data
-        user = User(email, password, name, gender, membership, remarks)
+        user = User(email, password, name, gender, membership, remarks, birthday)
         print(user)
 
         user_dict[user.id] = user
@@ -43,4 +44,4 @@ def contact_us():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5001)

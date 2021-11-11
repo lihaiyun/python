@@ -40,8 +40,8 @@ class User:
 
     def __str__(self):
         return f'ID: {self.id}\nEmail: {self.email}\nName: {self.name}\nGender: {self.gender}\n' \
-               f'Membership: {self.membership}\nRemarks: {self.remarks}\n' \
                f'Birthday: {self.get_birthday_str()}\n' \
+               f'Membership: {self.membership}\nRemarks: {self.remarks}\n' \
                f'Type: {self.type}\nStatus: {self.status}\n' \
                f'Date Created: {self.get_time_created_str()}\n' \
                f'Date Updated: {self.get_time_updated_str()}\n'
