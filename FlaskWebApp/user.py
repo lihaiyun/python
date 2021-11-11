@@ -20,17 +20,17 @@ class User:
         self.gender = gender
         self.membership = membership
         self.remarks = remarks
-        self.birthay = birthday
+        self.birthday = birthday
         self.type = User.type_customer
         self.status = User.status_active
         self.time_created = datetime.now()
         self.time_updated = datetime.now()
 
     def get_birthday_str(self):
-        if self.birthay is None:
+        if self.birthday is None:
             return 'Unknown'
         else:
-            return self.birthay.strftime(User.date_format)
+            return self.birthday.strftime(User.date_format)
 
     def get_time_created_str(self):
         return self.time_created.strftime(User.datetime_format)
