@@ -54,8 +54,8 @@ def delete():
 
 def display_all():
     if len(phone_dict) > 0:
-        for phone_id in phone_dict:
-            print(phone_dict[phone_id])
+        for phone in phone_dict.values():
+            print(phone)
     else:
         print('No phone available')
 
