@@ -3,8 +3,8 @@ from datetime import datetime
 
 
 class User:
-    type_customer = 'customer'
-    type_staff = 'staff'
+    type_customer = 'Customer'
+    type_staff = 'Staff'
 
     status_active = 1
     status_deleted = 0
