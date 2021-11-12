@@ -14,9 +14,9 @@ class Student:
 
 def main():
     school_dict = {'SchoolA': 5, 'SchoolB': 5, 'SchoolC': 5}
-
     students = load_result()
-    students.sort(key=by_score, reverse=True)
+    students = filter(check_score, students)
+    students = sorted(students, key=by_score, reverse=True)
 
     for s in students:
         s.choices = ['SchoolA', 'SchoolB', 'SchoolC']
@@ -30,6 +30,10 @@ def main():
 
     for s in students:
         print(f'{s.name} scores {s.get_score():.2f}, allocated {s.allocation}')
+
+
+def check_score(student):
+    return student.get_score() >= 90
 
 
 def by_score(student):
