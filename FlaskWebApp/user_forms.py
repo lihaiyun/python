@@ -1,5 +1,4 @@
-from wtforms import Form, StringField, PasswordField, RadioField, SelectField, TextAreaField, validators
-from wtforms.fields.html5 import EmailField, DateField
+from wtforms import Form, StringField, PasswordField, RadioField, SelectField, TextAreaField, validators, EmailField, DateField
 
 
 class CreateUserForm(Form):
