@@ -12,11 +12,11 @@ def get_number(str):
 
 
 def check_mark(mark):
-    if mark < 0 or mark > 100:
+    if 0 <= mark <= 100:
+        return True
+    else:
         print('Mark must be between 0 to 100')
         return False
-    else:
-        return True
 
 
 nric = input('Enter lecturer NRIC: ')
