@@ -19,6 +19,13 @@ def read_from_txt():
         print('Error to open file')
 
 
+# Read data from shelve
+def read_from_shelve():
+    db = shelve.open('storage')
+    if 'person' in db:
+        person_dict = db['person']
+
+
 # Add person
 def add_person():
     for i in range(2):
@@ -47,13 +54,13 @@ def find_person():
 
 # Save data to shelve
 def save_to_shelve():
-    db = shelve.open('person')
+    db = shelve.open('storage')
     db['person'] = person_dict
     db.close()
 
 
 read_from_txt()
 # add_person()
-# display_all()
+display_all()
 # find_person()
 save_to_shelve()

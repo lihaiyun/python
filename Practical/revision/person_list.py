@@ -57,6 +57,6 @@ def save_to_txt():
 
 read_from_txt()
 # add_person()
-# display_all()
+display_all()
 # find_person()
 save_to_txt()
