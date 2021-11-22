@@ -3,7 +3,7 @@ from person import Person
 
 # Read data from txt
 def read_from_txt():
-    list = []
+    data_list = []
     try:
         file = open('person.txt', 'r')
         lines = file.readlines()
@@ -12,10 +12,10 @@ def read_from_txt():
             nric = values[0].strip()
             name = values[1].strip()
             p = Person(nric, name)
-            list.append(p)
+            data_list.append(p)
     except:
         print('Error to open file')
-    return list
+    return data_list
 
 
 # Add person

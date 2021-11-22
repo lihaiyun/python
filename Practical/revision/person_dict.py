@@ -4,7 +4,7 @@ from person import Person
 
 # Read data from txt
 def read_from_txt():
-    dict = {}
+    data_dict = {}
     try:
         file = open('person.txt', 'r')
         lines = file.readlines()
@@ -13,19 +13,19 @@ def read_from_txt():
             nric = values[0].strip()
             name = values[1].strip()
             p = Person(nric, name)
-            dict[nric] = p
+            data_dict[nric] = p
     except:
         print('Error to open file')
-    return dict
+    return data_dict
 
 
 # Read data from shelve
 def read_from_shelve():
-    dict = {}
+    data_dict = {}
     db = shelve.open('storage')
     if 'person' in db:
-        dict = db['person']
-    return dict
+        data_dict = db['person']
+    return data_dict
 
 
 # Add person
