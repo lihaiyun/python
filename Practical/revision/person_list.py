@@ -3,11 +3,23 @@ from person import Person
 person_list = []
 
 # Add person
-for i in range(2):
-    nric = input('Enter NRIC: ')
-    name = input('Enter name: ')
-    p = Person(nric, name)
-    person_list.append(p)
+# for i in range(2):
+#     nric = input('Enter NRIC: ')
+#     name = input('Enter name: ')
+#     p = Person(nric, name)
+#     person_list.append(p)
+
+try:
+    file = open('person.txt', 'r')
+    lines = file.readlines()
+    for line in lines:
+        values = line.split(',')
+        nric = values[0].strip()
+        name = values[1].strip()
+        p = Person(nric, name)
+        person_list.append(p)
+except:
+    print('Error to open file')
 
 # display all person
 for p in person_list:
