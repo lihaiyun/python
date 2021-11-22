@@ -1,10 +1,9 @@
 from person import Person
 
-person_list = []
-
 
 # Read data from txt
 def read_from_txt():
+    list = []
     try:
         file = open('person.txt', 'r')
         lines = file.readlines()
@@ -13,9 +12,10 @@ def read_from_txt():
             nric = values[0].strip()
             name = values[1].strip()
             p = Person(nric, name)
-            person_list.append(p)
+            list.append(p)
     except:
         print('Error to open file')
+    return list
 
 
 # Add person
@@ -55,7 +55,7 @@ def save_to_txt():
     file.close()
 
 
-read_from_txt()
+person_list = read_from_txt()
 # add_person()
 display_all()
 # find_person()
