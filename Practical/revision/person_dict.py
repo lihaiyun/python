@@ -30,11 +30,10 @@ def read_from_shelve():
 
 # Add person
 def add_person():
-    for i in range(2):
-        nric = input('Enter NRIC: ')
-        name = input('Enter name: ')
-        p = Person(nric, name)
-        person_dict[nric] = p
+    nric = input('Enter NRIC: ')
+    name = input('Enter name: ')
+    p = Person(nric, name)
+    person_dict[nric] = p
 
 
 # Display all person

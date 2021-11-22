@@ -20,11 +20,10 @@ def read_from_txt():
 
 # Add person
 def add_person():
-    for i in range(2):
-        nric = input('Enter NRIC: ')
-        name = input('Enter name: ')
-        p = Person(nric, name)
-        person_list.append(p)
+    nric = input('Enter NRIC: ')
+    name = input('Enter name: ')
+    p = Person(nric, name)
+    person_list.append(p)
 
 
 # Display all person
