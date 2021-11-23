@@ -13,7 +13,7 @@ def read_from_txt():
             name = values[1].strip()
             p = Person(nric, name)
             data_list.append(p)
-    except:
+    except IOError:
         print('Error to open file')
     return data_list
 
