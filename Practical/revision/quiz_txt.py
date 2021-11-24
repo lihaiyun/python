@@ -18,9 +18,12 @@ def take_quiz():
     add = input('Do you want to add your record to Hall of Fame? (y/n) ')
     if add.upper() == 'Y':
         admin_no = input('Enter your admin no: ')
-        file = open('fame.txt', 'a')
-        file.write(f'{admin_no},{score}\n')
-        file.close()
+        try:
+            file = open('fame.txt', 'a')
+            file.write(f'{admin_no},{score}\n')
+            file.close()
+        except:
+            print('Error when write to file')
 
 
 def display_results():
@@ -37,7 +40,7 @@ def display_results():
         sorted_list = sorted(fame_list, key=by_score, reverse=True)
         for fame in sorted_list:
             print(fame)
-    except IOError:
+    except:
         print('File not existed')
 
 

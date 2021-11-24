@@ -15,7 +15,7 @@ def read_from_txt():
             p = Person(nric, name)
             data_dict[nric] = p
     except IOError:
-        print('Error to open file')
+        print('Error when open file')
     return data_dict
 
 
@@ -27,7 +27,7 @@ def read_from_shelve():
         if 'person' in db:
             data_dict = db['person']
     except:
-        print('Error to open shelve')
+        print('Error when open shelve')
     return data_dict
 
 
@@ -59,17 +59,23 @@ def find_person():
 
 # Save data to txt
 def save_to_txt():
-    file = open('person.txt', 'w')
-    for p in person_dict.values():
-        file.write(f'{p.nric},{p.name}\n')
-    file.close()
+    try:
+        file = open('person.txt', 'w')
+        for p in person_dict.values():
+            file.write(f'{p.nric},{p.name}\n')
+        file.close()
+    except:
+        print('Error when write to file')
 
 
 # Save data to shelve
 def save_to_shelve():
-    db = shelve.open('storage')
-    db['person'] = person_dict
-    db.close()
+    try:
+        db = shelve.open('storage')
+        db['person'] = person_dict
+        db.close()
+    except:
+        print('Error when open shelve')
 
 
 # person_dict = read_from_txt()

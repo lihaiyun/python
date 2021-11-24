@@ -13,8 +13,8 @@ def read_from_txt():
             name = values[1].strip()
             p = Person(nric, name)
             data_list.append(p)
-    except IOError:
-        print('Error to open file')
+    except:
+        print('Error when open file')
     return data_list
 
 
@@ -48,10 +48,13 @@ def find_person():
 
 # Save data to txt
 def save_to_txt():
-    file = open('person.txt', 'w')
-    for p in person_list:
-        file.write(f'{p.nric},{p.name}\n')
-    file.close()
+    try:
+        file = open('person.txt', 'w')
+        for p in person_list:
+            file.write(f'{p.nric},{p.name}\n')
+        file.close()
+    except:
+        print('Error when write to file')
 
 
 person_list = read_from_txt()
