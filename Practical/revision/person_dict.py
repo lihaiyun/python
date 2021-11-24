@@ -26,6 +26,7 @@ def read_from_shelve():
         db = shelve.open('storage')
         if 'person' in db:
             data_dict = db['person']
+        db.close()
     except:
         print('Error when open shelve')
     return data_dict
