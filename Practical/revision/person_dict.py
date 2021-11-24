@@ -22,9 +22,12 @@ def read_from_txt():
 # Read data from shelve
 def read_from_shelve():
     data_dict = {}
-    db = shelve.open('storage')
-    if 'person' in db:
-        data_dict = db['person']
+    try:
+        db = shelve.open('storage')
+        if 'person' in db:
+            data_dict = db['person']
+    except:
+        print('Error to open shelve')
     return data_dict
 
 

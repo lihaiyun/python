@@ -6,9 +6,12 @@ quiz_pool = {'The national athem of Singapore': 'Majulah Singapura',
              'The national language of Singapore': 'Malay'}
 
 fame_dict = {}
-db = shelve.open('quiz')
-if 'fame' in db:
-    fame_dict = db['fame']
+try:
+    db = shelve.open('quiz')
+    if 'fame' in db:
+        fame_dict = db['fame']
+except:
+    print('Error to open shelve')
 
 
 def take_quiz():
