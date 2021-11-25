@@ -49,10 +49,8 @@ def display_all():
 # Find person
 def find_person():
     nric = input('Enter NRIC to find: ')
-    found = None
     if nric in person_dict:
         found = person_dict[nric]
-    if found is not None:
         print(f'Person found: {found}')
     else:
         print('Person not found')
