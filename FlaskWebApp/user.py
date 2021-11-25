@@ -3,6 +3,13 @@ from datetime import datetime
 
 
 class User:
+    gender_dict = {
+        '': 'Select', 'F': 'Female', 'M': 'Male'
+    }
+    membership_dict = {
+        'F': 'Fellow', 'S': 'Senior', 'P': 'Professional'
+    }
+
     type_customer = 'Customer'
     type_staff = 'Staff'
 

@@ -1,24 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from user_forms import CreateUserForm
 from user import User
-import shelve
+from user_service import *
 
 user_controller = Blueprint('user', __name__)
-
-
-def read_users():
-    user_dict = {}
-    db = shelve.open('library')
-    if 'users' in db:
-        user_dict = db['users']
-    db.close()
-    return user_dict
-
-
-def save_users(user_dict):
-    db = shelve.open('library')
-    db['users'] = user_dict
-    db.close()
 
 
 @user_controller.route('/retrieveUsers')
