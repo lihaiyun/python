@@ -31,5 +31,6 @@ def create_user():
         user_dict[user.id] = user
 
         save_users(user_dict)
+        # return redirect('/retrieveUsers')
         return redirect(url_for('user.retrieve_users'))
     return render_template('createUser.html', form=create_user_form)
