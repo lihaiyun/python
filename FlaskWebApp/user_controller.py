@@ -8,7 +8,7 @@ user_controller = Blueprint('user', __name__)
 
 @user_controller.route('/retrieveUsers')
 def retrieve_users():
-    user_dict = read_users()
+    user_dict = get_user_dict()
     user_list = user_dict.values()
     return render_template('retrieveUsers.html', count=len(user_list), user_list=user_list)
 
@@ -17,8 +17,6 @@ def retrieve_users():
 def create_user():
     create_user_form = CreateUserForm(request.form)
     if request.method == 'POST' and create_user_form.validate():
-        user_dict = read_users()
-
         email = create_user_form.email.data
         password = create_user_form.password.data
         name = create_user_form.name.data
@@ -28,9 +26,8 @@ def create_user():
         remarks = create_user_form.remarks.data
         user = User(email, password, name, gender, membership, remarks, birthday)
         print(user)
-        user_dict[user.id] = user
 
-        save_users(user_dict)
+        save_user(user)
         # return redirect('/retrieveUsers')
         return redirect(url_for('user.retrieve_users'))
     return render_template('createUser.html', form=create_user_form)

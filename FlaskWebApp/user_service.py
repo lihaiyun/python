@@ -1,7 +1,7 @@
 import shelve
 
 
-def read_users():
+def get_user_dict():
     user_dict = {}
     db = shelve.open('library')
     if 'users' in db:
@@ -10,7 +10,11 @@ def read_users():
     return user_dict
 
 
-def save_users(user_dict):
+def save_user(user):
+    user_dict = {}
     db = shelve.open('library')
+    if 'users' in db:
+        user_dict = db['users']
+    user_dict[user.id] = user
     db['users'] = user_dict
     db.close()
