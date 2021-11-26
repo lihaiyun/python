@@ -5,11 +5,11 @@
 <h1 class="display-4">Retrieve Users</h1>
 <div>
     {% if count == 0 %}
-    <p>There are no users.</p>
+    <p>There are no users</p>
     {% elif count == 1 %}
-    <p>There is 1 user.</p>
+    <p>There is 1 user</p>
     {% else %}
-    <p>There are {{ count }} users.</p>
+    <p>There are {{ count }} users</p>
     {% endif %}
 </div>
 <div>
@@ -21,7 +21,7 @@
             <th>Name</th>
             <th>Gender</th>
             <th>Membership</th>
-            <th>Remarks</th>
+            <th>Time Created</th>
             <th></th>
             <th></th>
         </tr>
@@ -32,9 +32,9 @@
             <td>{{user.type}}</td>
             <td>{{user.email}}</td>
             <td>{{user.name}}</td>
-            <td>{{user.gender}}</td>
-            <td>{{user.membership}}</td>
-            <td>{{user.remarks}}</td>
+            <td>{{user.get_gender_str()}}</td>
+            <td>{{user.get_membership_str()}}</td>
+            <td>{{user.get_time_created_str()}}</td>
             <td><a href="#" class="btn btn-warning">Update</a></td>
             <td>
                 <form action="" method="POST">
