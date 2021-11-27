@@ -8,8 +8,7 @@ user_controller = Blueprint('user', __name__)
 
 @user_controller.route('/retrieveUsers')
 def retrieve_users():
-    user_dict = get_user_dict()
-    user_list = user_dict.values()
+    user_list = get_user_list()
     return render_template('retrieveUsers.html', count=len(user_list), user_list=user_list)
 
 
