@@ -71,5 +71,5 @@ class User:
 # user1 = User('user1@test.com', 'FlaskWebapp', 'Alice', 'F', 'F')
 # print(user1)
 # user2 = User('user2@test.com', 'FlaskWebapp', 'Bryan', 'M', 'P', 'I love python',
-#              datetime.strptime('15/05/2005', User.date_format))
+#              datetime.strptime('15/05/2005', User.date_format), 'S')
 # print(user2)
