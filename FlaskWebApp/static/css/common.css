@@ -1,3 +1,12 @@
 .form-group {
     margin-top: 8px;
 }
+
+.form-check {
+    padding-left: 0;
+}
+
+.form-check li {
+    display: inline;
+    margin-left: 10px;
+}
