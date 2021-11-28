@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+from constants import *
 
 
 class User:
@@ -15,9 +16,6 @@ class User:
 
     status_active = 1
     status_deleted = 0
-
-    date_format = '%d/%m/%Y'
-    datetime_format = '%d/%m/%Y %H:%M:%S'
 
     def __init__(self, email, password, name, gender, membership, remarks=None, birthday=None, user_type='C'):
         self.id = str(uuid.uuid4())
@@ -46,13 +44,13 @@ class User:
         if self.birthday is None:
             return 'Unknown'
         else:
-            return self.birthday.strftime(User.date_format)
+            return self.birthday.strftime(date_format)
 
     def get_time_created_str(self):
-        return self.time_created.strftime(User.datetime_format)
+        return self.time_created.strftime(datetime_format)
 
     def get_time_updated_str(self):
-        return self.time_updated.strftime(User.datetime_format)
+        return self.time_updated.strftime(datetime_format)
 
     def __str__(self):
         return f'ID: {self.id}\n' \
@@ -71,5 +69,5 @@ class User:
 # user1 = User('user1@test.com', 'FlaskWebapp', 'Alice', 'F', 'F')
 # print(user1)
 # user2 = User('user2@test.com', 'FlaskWebapp', 'Bryan', 'M', 'P', 'I love python',
-#              datetime.strptime('15/05/2005', User.date_format), 'S')
+#              datetime.strptime('15/05/2005', date_format), 'S')
 # print(user2)
