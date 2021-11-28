@@ -14,4 +14,5 @@ class CreateUserForm(Form):
     gender = SelectField('Gender', [validators.DataRequired()], choices=User.gender_dict.items(), default='')
     birthday = DateField('Birthday', [validators.Optional()])
     membership = RadioField('Membership', choices=User.membership_dict.items(), default='F')
+    user_type = RadioField('User Type', choices=User.user_type_dict.items(), default='C')
     remarks = TextAreaField('Remarks', [validators.Optional()])

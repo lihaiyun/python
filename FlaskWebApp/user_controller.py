@@ -22,8 +22,9 @@ def create_user():
         gender = create_user_form.gender.data
         birthday = create_user_form.birthday.data
         membership = create_user_form.membership.data
+        user_type = create_user_form.user_type.data
         remarks = create_user_form.remarks.data
-        user = User(email, password, name, gender, membership, remarks, birthday)
+        user = User(email, password, name, gender, membership, remarks, birthday, user_type)
         print(user)
 
         save_user(user)
