@@ -9,9 +9,9 @@ class User:
     membership_dict = {
         'F': 'Fellow', 'S': 'Senior', 'P': 'Professional'
     }
-
-    type_customer = 'Customer'
-    type_staff = 'Staff'
+    user_type_dict = {
+        'C': 'Customer', 'S': 'Staff'
+    }
 
     status_active = 1
     status_deleted = 0
@@ -19,7 +19,7 @@ class User:
     date_format = '%d/%m/%Y'
     datetime_format = '%d/%m/%Y %H:%M:%S'
 
-    def __init__(self, email, password, name, gender, membership, remarks=None, birthday=None):
+    def __init__(self, email, password, name, gender, membership, remarks=None, birthday=None, user_type='C'):
         self.id = str(uuid.uuid4())
         self.email = email
         self.password = password
@@ -28,7 +28,7 @@ class User:
         self.membership = membership
         self.remarks = remarks
         self.birthday = birthday
-        self.type = User.type_customer
+        self.user_type = user_type
         self.status = User.status_active
         self.time_created = datetime.now()
         self.time_updated = datetime.now()
@@ -38,6 +38,9 @@ class User:
 
     def get_membership_str(self):
         return User.membership_dict[self.membership]
+
+    def get_user_type_str(self):
+        return User.user_type_dict[self.user_type]
 
     def get_birthday_str(self):
         if self.birthday is None:
@@ -59,13 +62,14 @@ class User:
                f'Birthday: {self.get_birthday_str()}\n' \
                f'Membership: {self.get_membership_str()}\n' \
                f'Remarks: {self.remarks}\n' \
-               f'Type: {self.type}\nStatus: {self.status}\n' \
+               f'User Type: {self.get_user_type_str()}\n' \
+               f'Status: {self.status}\n' \
                f'Date Created: {self.get_time_created_str()}\n' \
                f'Date Updated: {self.get_time_updated_str()}\n'
 
 
-# user1 = User('user1@test.com', 'flaskwebapp', 'Alice', 'F', 'F')
+# user1 = User('user1@test.com', 'FlaskWebapp', 'Alice', 'F', 'F')
 # print(user1)
-# user2 = User('user2@test.com', 'flaskwebapp', 'Bryan', 'M', 'P', 'I love python',
+# user2 = User('user2@test.com', 'FlaskWebapp', 'Bryan', 'M', 'P', 'I love python',
 #              datetime.strptime('15/05/2005', User.date_format))
 # print(user2)

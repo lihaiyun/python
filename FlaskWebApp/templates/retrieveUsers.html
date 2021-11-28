@@ -16,7 +16,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Type</th>
+            <th>User Type</th>
             <th>Email</th>
             <th>Name</th>
             <th>Gender</th>
@@ -29,7 +29,7 @@
         <tbody>
         {% for user in user_list %}
         <tr>
-            <td>{{user.type}}</td>
+            <td>{{user.get_user_type_str()}}</td>
             <td>{{user.email}}</td>
             <td>{{user.name}}</td>
             <td>{{user.get_gender_str()}}</td>
