@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from user_forms import CreateUserForm
 from user import User
-from user_service import *
+from user_service import get_user_list, save_user
 
 user_controller = Blueprint('user', __name__)
 

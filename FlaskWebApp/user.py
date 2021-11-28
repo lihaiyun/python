@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from constants import *
+from constants import date_format, datetime_format
 
 
 class User:
