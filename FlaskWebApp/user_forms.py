@@ -16,3 +16,13 @@ class CreateUserForm(Form):
     membership = RadioField('Membership', choices=User.membership_dict.items(), default='F')
     user_type = RadioField('User Type', choices=User.user_type_dict.items(), default='C')
     remarks = TextAreaField('Remarks', [validators.Optional()])
+
+
+class UpdateUserForm(Form):
+    email = EmailField('Email', [validators.DataRequired(), validators.Email()])
+    name = StringField('Name', [validators.Length(min=1, max=150), validators.DataRequired()])
+    gender = SelectField('Gender', [validators.DataRequired()], choices=User.gender_dict.items(), default='')
+    birthday = DateField('Birthday', [validators.Optional()])
+    membership = RadioField('Membership', choices=User.membership_dict.items(), default='F')
+    user_type = RadioField('User Type', choices=User.user_type_dict.items(), default='C')
+    remarks = TextAreaField('Remarks', [validators.Optional()])

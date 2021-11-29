@@ -35,7 +35,7 @@
             <td>{{user.get_gender_str()}}</td>
             <td>{{user.get_membership_str()}}</td>
             <td>{{user.get_time_created_str()}}</td>
-            <td><a href="#" class="btn btn-warning">Update</a></td>
+            <td><a href="/updateUser/{{user.id}}" class="btn btn-warning">Update</a></td>
             <td>
                 <form action="" method="POST">
                     <input type="submit" value="Delete" class="btn btn-danger">

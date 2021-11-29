@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for
-from user_forms import CreateUserForm
+from flask import Blueprint, render_template, request, redirect
+from user_forms import CreateUserForm, UpdateUserForm
 from user import User
-from user_service import get_user_list, save_user
+from user_service import get_user_list, get_user, save_user
+from datetime import datetime
 
 user_controller = Blueprint('user', __name__)
 
@@ -26,8 +27,34 @@ def create_user():
         remarks = create_user_form.remarks.data
         user = User(email, password, name, gender, membership, remarks, birthday, user_type)
         print(user)
-
         save_user(user)
-        # return redirect('/retrieveUsers')
-        return redirect(url_for('user.retrieve_users'))
-    return render_template('createUser.html', form=create_user_form)
+        return redirect('/retrieveUsers')
+    else:
+        return render_template('createUser.html', form=create_user_form)
+
+
+@user_controller.route('/updateUser/<id>', methods=['GET', 'POST'])
+def update_user(id):
+    user = get_user(id)
+    update_user_form = UpdateUserForm(request.form)
+    if request.method == 'POST' and update_user_form.validate():
+        user.email = update_user_form.email.data
+        user.name = update_user_form.name.data
+        user.gender = update_user_form.gender.data
+        user.birthday = update_user_form.birthday.data
+        user.membership = update_user_form.membership.data
+        user.user_type = update_user_form.user_type.data
+        user.remarks = update_user_form.remarks.data
+        user.time_updated = datetime.now()
+        print(user)
+        save_user(user)
+        return redirect('/retrieveUsers')
+    else:
+        update_user_form.email.data = user.email
+        update_user_form.name.data = user.name
+        update_user_form.gender.data = user.gender
+        update_user_form.birthday.data = user.birthday
+        update_user_form.membership.data = user.membership
+        update_user_form.user_type.data = user.user_type
+        update_user_form.remarks.data = user.remarks
+        return render_template('updateUser.html', form=update_user_form)
