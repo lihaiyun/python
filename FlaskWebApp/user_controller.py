@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, request, redirect
 from user_forms import CreateUserForm, UpdateUserForm
 from user import User
 from user_service import get_user_list, get_user, save_user
-from datetime import datetime
 
 user_controller = Blueprint('user', __name__)
 
@@ -45,7 +44,6 @@ def update_user(id):
         user.membership = update_user_form.membership.data
         user.user_type = update_user_form.user_type.data
         user.remarks = update_user_form.remarks.data
-        user.time_updated = datetime.now()
         print(user)
         save_user(user)
         return redirect('/retrieveUsers')
@@ -58,3 +56,11 @@ def update_user(id):
         update_user_form.user_type.data = user.user_type
         update_user_form.remarks.data = user.remarks
         return render_template('updateUser.html', form=update_user_form)
+
+
+@user_controller.route('/deleteUser/<id>', methods=['POST'])
+def delete_user(id):
+    user = get_user(id)
+    user.status = User.status_deleted
+    save_user(user)
+    return redirect('/retrieveUsers')
