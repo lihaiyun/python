@@ -1,6 +1,6 @@
 # Note: Use wtforms v3.0.0
-from wtforms import Form, StringField, PasswordField, RadioField, SelectField, TextAreaField, validators, EmailField, \
-    DateField
+from wtforms import Form, StringField, PasswordField, RadioField, SelectField, TextAreaField, EmailField, DateField, \
+    validators
 from user import User
 
 
