@@ -9,6 +9,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+
+                {% if session.user_type == 'S' %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Manage
                         Users</a>
@@ -17,6 +19,8 @@
                         <li><a class="dropdown-item" href="/retrieveUsers">Retrieve Users</a></li>
                     </ul>
                 </li>
+                {% endif %}
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/contactUs">Contact Us</a>
                 </li>
