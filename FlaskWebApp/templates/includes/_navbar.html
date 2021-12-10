@@ -5,12 +5,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Manage Users</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Manage
+                        Users</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/createUser">Create User</a></li>
                         <li><a class="dropdown-item" href="/retrieveUsers">Retrieve Users</a></li>
@@ -20,6 +21,13 @@
                     <a class="nav-link" href="/contactUs">Contact Us</a>
                 </li>
             </ul>
+            <div class="d-flex">
+                {% if session.user_name %}
+                <a class="btn btn-outline-light" href="/logout">Logout</a>
+                {% else %}
+                <a class="btn btn-outline-light" href="/login">Login</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 </nav>

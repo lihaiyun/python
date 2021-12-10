@@ -78,7 +78,14 @@ def login():
             session['user_type'] = user.user_type
             return redirect('/')
         else:
-            error = 'Invalid user or password'
+            error = 'Invalid email or password'
             return render_template('login.html', form=login_form, error=error)
     else:
         return render_template('login.html', form=login_form)
+
+
+@user_controller.route('/logout')
+def logout():
+    session.pop('user_name', None)
+    session.pop('user_type', None)
+    return redirect('/')
