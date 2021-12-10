@@ -1,5 +1,6 @@
 import shelve
 from datetime import datetime
+from user import User
 
 db_name = 'library'
 db_users_key = 'users'
@@ -26,15 +27,30 @@ def get_user_list():
 
 
 def get_user(id):
-    user = None
+    result = None
     user_dict = {}
     db = shelve.open(db_name)
     if db_users_key in db:
         user_dict = db[db_users_key]
-    if id in user_dict:
-        user = user_dict[id]
     db.close()
-    return user
+    if id in user_dict:
+        result = user_dict[id]
+    return result
+
+
+def get_user_for_login(email, password):
+    result = None
+    user_dict = {}
+    db = shelve.open(db_name)
+    if db_users_key in db:
+        user_dict = db[db_users_key]
+    db.close()
+    for user in user_dict.values():
+        if user.email == email and \
+                user.password == password and \
+                user.status == User.status_active:
+            result = user
+    return result
 
 
 def save_user(user):

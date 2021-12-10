@@ -3,6 +3,7 @@ from user_controller import user_controller
 
 app = Flask(__name__)
 app.register_blueprint(user_controller)
+app.secret_key = 'MyFlaskWebAppKey'
 
 
 @app.route('/')

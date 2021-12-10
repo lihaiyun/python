@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, request, redirect
-from user_forms import CreateUserForm, UpdateUserForm
+from flask import Blueprint, render_template, request, redirect, session
+from user_forms import CreateUserForm, UpdateUserForm, LoginForm
 from user import User
-from user_service import get_user_list, get_user, save_user
+from user_service import get_user_list, get_user, save_user, get_user_for_login
 
 user_controller = Blueprint('user', __name__)
 
@@ -64,3 +64,21 @@ def delete_user(id):
     user.status = User.status_deleted
     save_user(user)
     return redirect('/retrieveUsers')
+
+
+@user_controller.route('/login', methods=['GET', 'POST'])
+def login():
+    login_form = LoginForm(request.form)
+    if request.method == 'POST' and login_form.validate():
+        email = login_form.email.data
+        password = login_form.password.data
+        user = get_user_for_login(email, password)
+        if user is not None:
+            session['user_name'] = user.name
+            session['user_type'] = user.user_type
+            return redirect('/')
+        else:
+            error = 'Invalid user or password'
+            return render_template('login.html', form=login_form, error=error)
+    else:
+        return render_template('login.html', form=login_form)
