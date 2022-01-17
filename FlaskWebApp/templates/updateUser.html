@@ -20,11 +20,11 @@
         {{ render_field(form.birthday, class="form-control datepicker") }}
     </div>
     <div class="form-group">
-        <img src="/static/image/profile/{{ user.profile_image | default('user.png') }}" alt="{{ user.name }}"
-             width="120" height="120" style="object-fit:cover"/>
+        <img id="imgProfile" src="/static/image/profile/{{ user.profile_image | default('user.png') }}" alt="{{ user.name }}"
+             width="120" height="120" style="object-fit:cover" class="rounded-circle"/>
     </div>
     <div class="form-group">
-        <input type="file" name="image_file" accept="image/*">
+        <input id="inputImage" type="file" name="image_file" accept="image/*">
     </div>
     <div class="form-group">
         {{ render_field(form.membership, class="form-check") }}
@@ -37,4 +37,17 @@
     </div>
     <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
 </form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    inputImage.onchange = evt => {
+      const [file] = inputImage.files
+      if (file) {
+        imgProfile.src = URL.createObjectURL(file)
+      }
+    }
+});
+</script>
 {% endblock %}
