@@ -49,9 +49,11 @@ def update_user(id):
 
         uploaded_file = request.files['image_file']
         if uploaded_file.filename != '':
+            new_filename = f'{user.id}.jpg'
             uploaded_file.save(
                 os.path.join(os.path.dirname(current_app.instance_path),
-                             "static\\image\\profile", uploaded_file.filename))
+                             "static\\image\\profile", new_filename))
+            user.profile_image = new_filename
 
         print(user)
         save_user(user)
@@ -64,7 +66,7 @@ def update_user(id):
         update_user_form.membership.data = user.membership
         update_user_form.user_type.data = user.user_type
         update_user_form.remarks.data = user.remarks
-        return render_template('updateUser.html', form=update_user_form)
+        return render_template('updateUser.html', form=update_user_form, user=user)
 
 
 @user_controller.route('/deleteUser/<id>', methods=['POST'])

@@ -30,6 +30,7 @@ class User:
         self.status = User.status_active
         self.time_created = datetime.now()
         self.time_updated = datetime.now()
+        self.profile_image = None
 
     def get_gender_str(self):
         return User.gender_dict[self.gender]
@@ -58,6 +59,7 @@ class User:
                f'Name: {self.name}\n' \
                f'Gender: {self.get_gender_str()}\n' \
                f'Birthday: {self.get_birthday_str()}\n' \
+               f'Profile Image: {self.profile_image}\n' \
                f'Membership: {self.get_membership_str()}\n' \
                f'Remarks: {self.remarks}\n' \
                f'User Type: {self.get_user_type_str()}\n' \
