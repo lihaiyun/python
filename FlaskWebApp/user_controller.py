@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, redirect, session
 from user_forms import CreateUserForm, UpdateUserForm, LoginForm
 from user import User
 from user_service import get_user_list, get_user, save_user, get_user_for_login
+import os
+from flask import current_app
 
 user_controller = Blueprint('user', __name__)
 
@@ -44,6 +46,13 @@ def update_user(id):
         user.membership = update_user_form.membership.data
         user.user_type = update_user_form.user_type.data
         user.remarks = update_user_form.remarks.data
+
+        uploaded_file = request.files['image_file']
+        if uploaded_file.filename != '':
+            uploaded_file.save(
+                os.path.join(os.path.dirname(current_app.instance_path),
+                             "static\\image\\profile", uploaded_file.filename))
+
         print(user)
         save_user(user)
         return redirect('/retrieveUsers')
