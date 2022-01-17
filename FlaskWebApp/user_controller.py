@@ -86,6 +86,11 @@ def login():
             session['user_name'] = user.name
             session['user_type'] = user.user_type
             return redirect('/')
+        # Test to create the first staff account
+        # elif email == 'admin@admin.com':
+        #     session['user_name'] = 'Admin'
+        #     session['user_type'] = 'S'
+        #     return redirect('/')
         else:
             error = 'Invalid email or password'
             return render_template('login.html', form=login_form, error=error)
