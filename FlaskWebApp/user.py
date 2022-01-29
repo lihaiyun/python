@@ -17,6 +17,8 @@ class User:
     status_active = 1
     status_deleted = 0
 
+    default_image = 'user.png'
+
     def __init__(self, email, password, name, gender, membership, remarks=None, birthday=None, user_type='C'):
         self.id = str(uuid.uuid4())
         self.email = email
@@ -30,7 +32,7 @@ class User:
         self.status = User.status_active
         self.time_created = datetime.now()
         self.time_updated = datetime.now()
-        self.profile_image = None
+        self.profile_image = User.default_image
 
     def get_gender_str(self):
         return User.gender_dict[self.gender]

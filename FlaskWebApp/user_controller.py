@@ -52,7 +52,7 @@ def update_user(id):
             new_filename = f'{user.id}.jpg'
             uploaded_file.save(
                 os.path.join(os.path.dirname(current_app.instance_path),
-                             "static\\image\\profile", new_filename))
+                             "static", "image", "profile", new_filename))
             user.profile_image = new_filename
 
         print(user)
